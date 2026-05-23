@@ -16,14 +16,7 @@ interface CreateNoteDto {
   content: string;
   tag: string;
 }
-interface NoteId {
-  id: string;
-  title: string;
-  content: string;
-  createdAt: string;
-  updatedAt: string;
-  tag: NoteTag;
-}
+
 const NEXT_PUBLIC_NOTEHUB_TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
 const api = axios.create({
@@ -50,7 +43,7 @@ export const deleteNote = async (id: string): Promise<Note> => {
   const { data } = await api.delete<Note>(`/notes/${id}`);
   return data;
 };
-export const getSingleNote = async (id: string): Promise<NoteId> => {
-  const { data } = await api.get<NoteId>(`/notes/${id}`);
+export const getSingleNote = async (id: string): Promise<Note> => {
+  const { data } = await api.get<Note>(`/notes/${id}`);
   return data;
 };

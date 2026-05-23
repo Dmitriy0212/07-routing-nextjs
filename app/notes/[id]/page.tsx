@@ -1,6 +1,8 @@
-// app/notes/[id]/page.tsx
-
-import { QueryClient } from '@tanstack/react-query';
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from '@tanstack/react-query';
 import { getSingleNote } from '@/lib/api';
 import NoteDetailsClient from './NoteDetails.client';
 
@@ -17,7 +19,11 @@ const NoteDetails = async ({ params }: Props) => {
     queryFn: () => getSingleNote(id),
   });
 
-  return <NoteDetailsClient />;
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <NoteDetailsClient />
+    </HydrationBoundary>
+  );
 };
 
 export default NoteDetails;
