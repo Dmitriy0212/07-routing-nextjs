@@ -1,6 +1,6 @@
-import css from '../../Notes.module.css';
+import css from '../[...slug]/Notes.module.css';
 import { fetchNotes } from '../../../../lib/api';
-import NotesClient from '../../Notes.client';
+import NotesClient from './Notes.client';
 import {
   HydrationBoundary,
   QueryClient,
