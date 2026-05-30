@@ -25,7 +25,7 @@ export default async function NotesPage({ params }: Props) {
         page: 1,
         search: undefined,
         perPage: 12,
-        tag: tag ? [tag] : undefined,
+        tag: tag,
       }),
   });
 

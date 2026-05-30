@@ -28,7 +28,7 @@ function App({ tag }: Props) {
         page,
         search: querySe || undefined,
         perPage: 12,
-        tag: tag ? [tag] : undefined,
+        tag: tag,
       }),
     placeholderData: keepPreviousData,
   });
