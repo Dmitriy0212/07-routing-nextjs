@@ -2,13 +2,13 @@
 import 'modern-normalize';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import css from './Notes.module.css';
-import Pagination from '../../../components/Pagination/Pagination';
-import SearchBox from '../../../components/SearchBox/SearchBox';
-import Modal from '../../../components/Modal/Modal';
-import NoteForm from '../../../components/NoteForm/NoteForm';
+import Pagination from '../../components/Pagination/Pagination';
+import SearchBox from '../../components/SearchBox/SearchBox';
+import Modal from '../../components/Modal/Modal';
+import NoteForm from '../../components/NoteForm/NoteForm';
 import { useState, useEffect } from 'react';
-import { fetchNotes } from '../../../lib/api';
-import NoteList from '../../../components/NoteList/NoteList';
+import { fetchNotes } from '../../lib/api';
+import NoteList from '../../components/NoteList/NoteList';
 import { useDebouncedCallback } from 'use-debounce';
 import { Toaster } from 'react-hot-toast';
 

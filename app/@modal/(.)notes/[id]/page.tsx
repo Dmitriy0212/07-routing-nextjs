@@ -1,6 +1,6 @@
 import { getSingleNote } from '@/lib/api';
 import Modal from '../../../../components/Modal/Modal';
-import NoteDetails from '../../../../app/(public routes)/notes/[id]/NoteDetails.client';
+import NoteDetails from '../../../../app/notes/[id]/NoteDetails.client';
 
 type Props = {
   params: Promise<{ id: string }>;
