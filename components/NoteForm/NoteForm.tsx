@@ -52,10 +52,7 @@ export default function NoteForm({ onClose }: NoteFormProps) {
     actions: FormikHelpers<NoteFormValues>
   ) => {
     try {
-      await mutation.mutateAsync({
-        ...values,
-        tag: [values.tag],
-      });
+      await mutation.mutateAsync(values);
 
       actions.resetForm();
     } catch (error) {
