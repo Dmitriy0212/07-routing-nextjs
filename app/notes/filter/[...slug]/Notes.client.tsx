@@ -12,12 +12,11 @@ import NoteList from '../../../../components/NoteList/NoteList';
 import { useDebouncedCallback } from 'use-debounce';
 import { Toaster } from 'react-hot-toast';
 import { NoteTag } from '@/types/note';
-import { useRouter } from 'next/router';
+
 type Props = {
   tag?: NoteTag;
 };
 function App({ tag }: Props) {
-  const router = useRouter();
   const [createNoteThis, setCreateNoteThis] = useState(false);
   const [input, setInput] = useState('');
   const [querySe, setQuery] = useState('');
@@ -46,7 +45,7 @@ function App({ tag }: Props) {
   const closeModal = () => {
     setCreateNoteThis(false);
   };
-  const handleClose = () => router.back();
+
   const totalPages = data?.totalPages ?? 0;
   const notes = data?.notes ?? [];
 
@@ -87,7 +86,7 @@ function App({ tag }: Props) {
       <Toaster position="top-center" reverseOrder={false} />
 
       {createNoteThis && (
-        <Modal onClose={handleClose}>
+        <Modal onClose={closeModal}>
           <NoteForm onClose={closeModal} />
         </Modal>
       )}
