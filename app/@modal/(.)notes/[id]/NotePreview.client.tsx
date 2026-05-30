@@ -1,6 +1,9 @@
 'use client';
 
+import { useParams } from 'next/navigation';
 import css from './NotePreview.module.css';
+import { useQuery } from '@tanstack/react-query';
+import { getSingleNote } from '@/lib/api';
 type Note = {
   title: string;
   tag: string;
@@ -8,11 +11,17 @@ type Note = {
   createdAt: string;
 };
 
-type Props = {
-  data?: Note;
-};
+export default function NotePreviewClient() {
+  const { id } = useParams<{ id: string }>();
 
-export default function NotePreviewClient({ data }: Props) {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['note', id],
+    queryFn: () => getSingleNote(id),
+    refetchOnMount: false,
+  });
+
+  if (isLoading) return <p>Loading, please wait...</p>;
+  if (error) return <p>Something went wrong.</p>;
   return (
     <div className={css.container}>
       <div className={css.item}>
